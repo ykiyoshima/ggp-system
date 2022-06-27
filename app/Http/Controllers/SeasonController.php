@@ -48,6 +48,7 @@ class SeasonController extends Controller
         $validator = Validator::make($request->all(), [
             'season_name' => 'required | max:10',
             'season_date' => 'required',
+            'season_theme' => 'required',
         ]);
         // バリデーション:エラー
         if ($validator->fails()) {
