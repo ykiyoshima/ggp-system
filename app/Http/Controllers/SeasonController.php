@@ -61,7 +61,7 @@ class SeasonController extends Controller
         $speaker = 'speaker'.$request['speaker_number'];
         $result = Season::where('season_name', $request['season_name'])->update($request->except(['_token']));
         // ルーティング「todo.index」にリクエスト送信（一覧ページに移動）
-        return redirect()->route('season.index');
+        return redirect('season');
     }
 
     /**
