@@ -24,6 +24,7 @@ class SeasonController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
@@ -44,6 +45,8 @@ class SeasonController extends Controller
      */
     public function store(Request $request)
     {
+        var_dump('hoge');
+        exit();
         // バリデーション
         $validator = Validator::make($request->all(), [
             'season_name' => 'required | max:10',
@@ -60,7 +63,7 @@ class SeasonController extends Controller
         // create()は最初から用意されている関数
         // 戻り値は挿入されたレコードの情報
         $speaker = 'speaker'.$request['speaker_number'];
-        $result = Season::where('season_name', $request['season_name'])->update($request->except(['_token']));
+        $result = Season::where('season_name', $request['season_name'])->update($request->except(['_token', 'speaker_number']));
         // ルーティング「todo.index」にリクエスト送信（一覧ページに移動）
         return redirect('season');
     }
