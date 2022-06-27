@@ -98,5 +98,8 @@ Route::get('/season_make', function () {
 });
 Route::post('/season_make', function (Request $request) {
     $result = Season::create($request->except(['_token']));
-    return view('season_manage');
+    $seasons = Season::getAllOrderBySeasonName();
+    return view('season_manage', [
+        'seasons' => $seasons
+    ]);
 });
