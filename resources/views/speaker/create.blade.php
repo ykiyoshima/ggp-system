@@ -20,6 +20,7 @@
       @csrf
       <input type="text" name="season_name" value="{{$season->season_name}}" hidden>
       <input type="text" name="season_date" value="{{$season->season_date}}" hidden>
+      <input type="text" name="season_theme" value="{{$season->season_theme}}" hidden>
       <input type="text" name="speaker_number" value="{{$speaker_number}}" hidden>
       <p class="text-2xl text-gray-900 text-center pb-8">登壇するシーズン：{{$season->season_name}}（{{$season->season_date}}）, {{$speaker_number}}番目</p>
       <p class="text-2xl text-gray-900 text-center pb-8">所属クラス：<select name="speaker{{$speaker_number}}_class" id="speaker_class" class="border border-gray-900"><option value="F_LAB_07">F_LAB_07</option><option value="F_DEV_11">F_DEV_11</option><option value="Y_DEV_02">Y_DEV_02</option><option value="T_LAB_13">T_LAB_13</option><option value="T_DEV_23">T_DEV_23</option><option value="S_DEV_5">S_DEV_5</option></select></p>
