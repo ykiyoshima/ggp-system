@@ -45,8 +45,6 @@ class SeasonController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump('hoge');
-        exit();
         // バリデーション
         $validator = Validator::make($request->all(), [
             'season_name' => 'required | max:10',
