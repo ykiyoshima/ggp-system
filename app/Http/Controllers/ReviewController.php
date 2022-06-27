@@ -16,9 +16,6 @@ class ReviewController extends Controller
     public function index()
     {
         $season = Season::getSeasonBySeasonDate(date('Y-m-d'));
-        var_dump($season);
-        exit();
-
 
         return view('review.index', [
             'season' => $season

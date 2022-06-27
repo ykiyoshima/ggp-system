@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGP</title>
     @if(app('env') == 'production')
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
@@ -16,7 +16,7 @@
     <p class="text-2xl text-gray-900 text-center pb-32">順位へ反映される得点は、登壇者全員を評価して下さった方を対象とし、<br>その他の方は、得点・コメントの記録のみとなります。</p>
     <p class="text-3xl text-gray-900 text-center pb-8">審査するシーズン：{{$season ? $season->season_name.'（' : '本日はGGPお休みです'}}{{$season ? $season->season_date.'）' : ''}}</p>
     @if ($season)
-        <form action="prepare" method="POST">
+        <form action="/prepare" method="POST">
             @csrf
             <p class="text-3xl text-gray-900 text-center pb-8">審査員氏名：<input type="text" name="reviewer_name" placeholder="必須" class="border border-gray-900"></p>
             <input type="text" name="speaker_number" value="0" hidden>
