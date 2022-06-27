@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGP</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @if(app('env') == 'production')
+      <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @else
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
 </head>
 <body>
     <h1 class="text-6xl text-gray-900 font-bold text-center pt-32 pb-16">登壇予約</h1>

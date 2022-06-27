@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGP</title>
     @if(app('env') == 'production')
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
