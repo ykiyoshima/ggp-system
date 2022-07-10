@@ -26,7 +26,7 @@ Route::post('/btn_check', function (Request $request) {
     if ($request->has('skip_btn')) {
         return view('review.create', [
             'season' => Season::getSeasonBySeasonDate(date('Y-m-d')),
-            'speaker_number' => (int)$request->$speaker_number,
+            'speaker_number' => (int)$request->$speaker_number + 1,
             'reviewer_name' => $request->reviewer_name
         ]);
     } else {
