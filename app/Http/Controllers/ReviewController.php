@@ -76,6 +76,13 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->has('skip_btn')) {
+            return view('review.create', [
+                'season' => Season::getSeasonBySeasonDate(date('Y-m-d')),
+                'speaker_number' => (int)$request->speaker_number + 1,
+                'reviewer_name' => $request->reviewer_name
+            ]);
+        }
         $season = Season::getSeasonBySeasonDate(date('Y-m-d'));
 
         if ($season->speaker5_name) {
