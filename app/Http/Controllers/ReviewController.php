@@ -79,6 +79,7 @@ class ReviewController extends Controller
         for ($i = 1; $i <= 5; $i++) {
             if ($request['speaker_number'] == $i) {
                 if ($request->has('skip_btn')) {
+                    var_dump('hoge');
                     return view('review.create', [
                         'season' => Season::getSeasonBySeasonDate(date('Y-m-d')),
                         'speaker_number' => (int)$request->$speaker_number,
