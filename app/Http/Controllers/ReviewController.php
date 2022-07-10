@@ -76,18 +76,6 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->has('skip_btn')) {
-            if ((int)($request['speaker_number']) < $speaker_count) {
-                return view('review.create', [
-                    'season' => Season::getSeasonBySeasonDate(date('Y-m-d')),
-                    'speaker_number' => (int)$request->speaker_number + 1,
-                    'reviewer_name' => $request->reviewer_name
-                ]);
-            } else {
-                return view('review.finish');
-            }
-
-        }
         $season = Season::getSeasonBySeasonDate(date('Y-m-d'));
 
         if ($season->speaker5_name) {
@@ -100,6 +88,18 @@ class ReviewController extends Controller
             $speaker_count = 2;
         } elseif ($season->speaker1_name) {
             $speaker_count = 1;
+        }
+        if ($request->has('skip_btn')) {
+            if ((int)$request->speaker_number < $speaker_count) {
+                return view('review.create', [
+                    'season' => $season,
+                    'speaker_number' => (int)$request->speaker_number + 1,
+                    'reviewer_name' => $request->reviewer_name
+                ]);
+            } else {
+                return view('review.finish');
+            }
+
         }
         $speaker_name = $season['speaker'.$request['speaker_number'].'_name'];
         $speaker_class = $season['speaker'.$request['speaker_number'].'_class'];
