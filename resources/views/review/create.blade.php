@@ -25,7 +25,7 @@
     @elseif ($speaker_number == 5)
       <h1 class="text-5xl text-gray-900 pt-8 pb-16">登壇者　　{{$season->speaker5_name}}</h1>
     @endif
-    <form action="{{route('review.store')}}" method="POST">
+    <form action="/btn_check" method="POST">
       @csrf
       <input type="text" name="speaker_number" value="{{$speaker_number}}" hidden>
       <input type="text" name="reviewer_name" value="{{$reviewer_name}}" hidden>
