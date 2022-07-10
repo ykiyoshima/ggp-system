@@ -25,7 +25,7 @@
     @elseif ($speaker_number == 5)
       <h1 class="text-5xl text-gray-900 pt-8 pb-16">登壇者　　{{$season->speaker5_name}}</h1>
     @endif
-    <form action="/btn_check" method="POST">
+    <form action="{{route('review.store')}}" method="POST">
       @csrf
       <input type="text" name="speaker_number" value="{{$speaker_number}}" hidden>
       <input type="text" name="reviewer_name" value="{{$reviewer_name}}" hidden>
@@ -176,8 +176,8 @@
       </div>
 
       <div class="flex justify-end mt-8">
-        <button name="skip_btn" type="submit" class="block w-64 py-4 rounded text-2xl text-center text-gray-100 bg-gray-300 text-gray-900 hover:bg-gray-500">SKIP</button>
-        <button name="done_btn" type="submit" class="block w-64 py-4 ml-8 rounded text-2xl text-center text-gray-100 bg-gs text-gray-900 hover:bg-hover-gs">DONE</button>
+        <button name="skip_btn" class="block w-64 py-4 rounded text-2xl text-center text-gray-100 bg-gray-300 text-gray-900 hover:bg-gray-500">SKIP</button>
+        <button name="done_btn" class="block w-64 py-4 ml-8 rounded text-2xl text-center text-gray-100 bg-gs text-gray-900 hover:bg-hover-gs">DONE</button>
       </div>
     </form>
   </main>
