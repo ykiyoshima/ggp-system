@@ -176,7 +176,7 @@
       </div>
 
       <div class="flex justify-end mt-8">
-        <button name="skip_btn" class="block w-64 py-4 rounded text-2xl text-center text-gray-100 bg-gray-300 text-gray-900 hover:bg-gray-500">SKIP</button>
+        <button name="skip_btn" value="skip" class="block w-64 py-4 rounded text-2xl text-center text-gray-100 bg-gray-300 text-gray-900 hover:bg-gray-500">SKIP</button>
         <button name="done_btn" class="block w-64 py-4 ml-8 rounded text-2xl text-center text-gray-100 bg-gs text-gray-900 hover:bg-hover-gs">DONE</button>
       </div>
     </form>
