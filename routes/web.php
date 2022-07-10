@@ -63,6 +63,7 @@ Route::get('/result', function () {
 Route::post('/result', function (Request $request) {
     $scores = Score::getPartsOrderByTotalScore();
     $target_season_name = $request->season;
+    $result = Season::where('season_name', $target_season_name)->update('is_done', 1);
     return view('result_announce', [
         'scores' => $scores,
         'target_season_name' => $target_season_name

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('speaker4_class')->nullable();
             $table->string('speaker5_name')->nullable();
             $table->string('speaker5_class')->nullable();
+            $table->boolean('is_done');
             $table->timestamps();
         });
     }
