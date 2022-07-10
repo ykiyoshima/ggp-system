@@ -22,6 +22,17 @@ use Illuminate\Http\Request;
 Route::resource('/season', SeasonController::class);
 Route::resource('/review', ReviewController::class);
 Route::post('/prepare', [ReviewController::class, 'prepare']);
+Route::post('/btn_check', function (Request $request) {
+    if ($request->has('skip_btn')) {
+        return view('review.create', [
+            'season' => Season::getSeasonBySeasonDate(date('Y-m-d')),
+            'speaker_number' => (int)$request->$speaker_number,
+            'reviewer_name' => $request->reviewer_name
+        ]);
+    } else {
+        return [ReviewController::class, 'store'];
+    }
+});
 
 Route::get('/', function () {
     return view('index');
