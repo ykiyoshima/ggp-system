@@ -19,6 +19,10 @@ class Season extends Model
     {
         return self::orderBy('season_name', 'desc')->get();
     }
+    public static function getFinishedSeasons()
+    {
+        return self::whereNotNull('speaker1_name')->orderBy('season_name', 'desc')->get();
+    }
 
     public static function getSeasonBySeasonName(string $season_name)
     {

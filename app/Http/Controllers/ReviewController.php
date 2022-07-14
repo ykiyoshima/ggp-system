@@ -44,16 +44,11 @@ class ReviewController extends Controller
     public function list(Request $request)
     {
         $scores = Score::getPartsOrderByTotalScore();
-        $seasons = Season::getAllOrderBySeasonName();
-        $output_seasons = array();
-        foreach($seasons as $season) {
-            if ($season->speaker1_name->exists()) {
-                array_push($output_seasons, $season);
-            }
-        }
+        $seasons = Season::getFinishedSeasons();
+
         return view('score.index', [
             'scores' => $scores,
-            'seasons' => $output_seasons
+            'seasons' => $seasons
         ]);
     }
 
