@@ -21,7 +21,7 @@ class Season extends Model
     }
     public static function getFinishedSeasons()
     {
-        return self::whereNotNull('speaker1_name')->orderBy('season_name', 'desc')->get();
+        return self::where('is_done', 1)->orderBy('season_name', 'desc')->get();
     }
 
     public static function getSeasonBySeasonName(string $season_name)
