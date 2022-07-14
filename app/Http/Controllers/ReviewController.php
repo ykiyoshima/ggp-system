@@ -45,7 +45,7 @@ class ReviewController extends Controller
     {
         $scores = Score::getPartsOrderByTotalScore();
         $seasons = Season::getAllOrderBySeasonName();
-
+        ddd($seasons);
         return view('score.index', [
             'scores' => $scores,
             'seasons' => $seasons
