@@ -45,7 +45,7 @@ class ReviewController extends Controller
     {
         $scores = Score::getPartsOrderByTotalScore();
         $seasons = Season::getAllOrderBySeasonName();
-        $output_seasons = [];
+        $output_seasons = array();
         foreach($seasons as $season) {
             if ($season->speaker1_name->exists()) {
                 array_push($output_seasons, $season);
