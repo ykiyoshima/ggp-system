@@ -51,7 +51,9 @@
   const selectSpeakerTag = document.getElementById('speakers');
   const scoreParts = @json($scoreParts);
   selectSeasonTag.addEventListener('change', () => {
-    console.log(selectSeasonTag.options[selectSeasonTag.selectedIndex].value);
+    while (selectSpeakerTag.firstChild) {
+      selectSpeakerTag.removeChild(selectSpeakerTag.firstChild);
+    }
     scoreParts.forEach(score => {
       if (score['season_name'] === selectSeasonTag.options[selectSeasonTag.selectedIndex].value) {
         const option = document.createElement('option');
