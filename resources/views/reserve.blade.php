@@ -31,7 +31,7 @@
           <p class="w-56 h-[192px] flex justify-center items-center border-y border-r border-gray-900">{{$season->season_theme}}</p>
           <div class="w-[30rem] h-[192px] border-y border-r border-gray-900">
             @if ($season->speaker1_name)
-              <div class="flex justify-center items-center my-2 divide-x divide-gray-400"><p class="w-[10%]">1</p><p class="w-[30%]">{{$season->speaker1_class}}</p><p class="w-2/5">{{$season->speaker1_name}}</p><div class="w-1/5"><p>---</p></div></div>
+              <div class="flex justify-center items-center my-2 divide-x divide-gray-400"><p class="w-[10%]">1</p><p class="w-[30%]">{{$season->speaker1_class}}</p><p class="w-2/5">{{$season->speaker1_name}}</p><div class="w-1/5"><a href="/season/update?season_id={{$season->id}}&speaker_number=1" class="px-4 py-1 text-base mx-auto rounded bg-gray-300 hover:bg-gray-500 hover:text-gray-100 cursor-pointer">キャンセル</a></div></div>
             @else
               <div class="flex justify-center items-center my-2 divide-x divide-gray-400"><p class="w-[10%]">1</p><p class="w-[30%]">--------</p><p class="w-2/5">募集中</p><div class="w-1/5"><a href="/season/create?season_name={{$season->season_name}}&speaker_number=1" class="px-4 py-1 text-base mx-auto rounded bg-gray-300 hover:bg-gray-500 hover:text-gray-100 cursor-pointer">参加</a></div></div>
             @endif

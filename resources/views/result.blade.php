@@ -30,8 +30,8 @@
   }
 
   seasons.forEach(season => {
-    console.log(season['season_date'] <= formatDate(new Date()));
-    if (season['season_date'] <= formatDate(new Date()) && season['speaker1_name']) {
+    console.log(season['season_date'] >= formatDate(new Date()));
+    if (season['season_date'] >= formatDate(new Date()) && season['speaker1_name']) {
       const option = document.createElement('option');
       option.value = season['season_name'];
       option.textContent = season['season_name'];

@@ -92,12 +92,14 @@ class SeasonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $season_id = $request->season_id;
+        $speaker_number = $request->speaker_number;
+
+        Season::where('id', $season_id)->update(['speaker'.$speaker_number.'name' => null, 'speaker'.$speaker_number.'class' => null]);
     }
 
     /**
